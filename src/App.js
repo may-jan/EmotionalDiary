@@ -3,10 +3,10 @@ import { useReducer, useRef, createContext } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./components/Home";
-import New from "./components/New";
-import Edit from "./components/Edit";
-import Diary from "./components/Diary";
+import Home from "./pages/Home";
+import New from "./pages/New";
+import Edit from "./pages/Edit";
+import Diary from "./pages/Diary";
 
 // reducer 함수
 const reducer = (state, action) => {
