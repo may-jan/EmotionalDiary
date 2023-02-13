@@ -1,7 +1,7 @@
 import React from "react";
 import { useReducer, useRef, createContext } from "react";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 import Home from "./pages/Home";
 import New from "./pages/New";
@@ -16,7 +16,7 @@ const reducer = (state, action) => {
       return action.data;
     }
     case "CREATE": {
-      newState = [...action.data, ...state];
+      newState = [action.data, ...state];
       break;
     }
     case "REMOVE": {
@@ -112,9 +112,10 @@ const App = () => {
       },
     });
   };
+
   return (
     <DiaryStateContext.Provider value={data}>
-      <DiaryDispatchContext.Provider value={(onCreate, onEdit, onRemove)}>
+      <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
         <BrowserRouter>
           <div className="App">
             <Routes>
