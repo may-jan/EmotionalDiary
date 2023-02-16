@@ -16,7 +16,7 @@ const filterOptionList = [
 ];
 
 // 컨트롤 메뉴
-const ControlMenu = ({ value, onChange, optionList }) => {
+const ControlMenu = React.memo(({ value, onChange, optionList }) => {
   return (
     <>
       <select
@@ -32,7 +32,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
       </select>
     </>
   );
-};
+});
 
 const DiaryList = ({ diaryList }) => {
   const navigate = useNavigate();

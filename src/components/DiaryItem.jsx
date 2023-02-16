@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 
-const DiaryItem = ({ id, emotion, content, date }) => {
+const DiaryItem = React.memo(({ id, emotion, content, date }) => {
   const strDate = new Date(parseInt(date)).toLocaleDateString();
 
   const navigate = useNavigate();
@@ -33,6 +33,6 @@ const DiaryItem = ({ id, emotion, content, date }) => {
       </div>
     </div>
   );
-};
+});
 
 export default DiaryItem;
