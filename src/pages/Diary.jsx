@@ -36,7 +36,7 @@ const Diary = () => {
     return <div className="diaryList"> 로딩중입니다....</div>;
   } else {
     const curEmotionData = emotionList.find(
-      (it) => parseInt(it.emotion_id) === parseInt(id)
+      (it) => parseInt(it.emotion_id) === parseInt(data.emotion)
     );
 
     return (
