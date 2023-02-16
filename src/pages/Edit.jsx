@@ -15,7 +15,6 @@ const Edit = () => {
       const targetDiary = diaryList.find(
         (it) => parseInt(it.id) === parseInt(id)
       );
-      console.log(targetDiary);
 
       if (targetDiary) {
         setOriginData(targetDiary);
@@ -24,7 +23,7 @@ const Edit = () => {
         navigate("/", { replace: true });
       }
     }
-  }, [diaryList, id]);
+  }, [diaryList, id, navigate]);
 
   return (
     <div className="Edit">
