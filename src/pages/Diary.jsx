@@ -12,8 +12,12 @@ const Diary = () => {
   const { id } = useParams();
   const diaryList = useContext(DiaryStateContext);
   const navigate = useNavigate();
-
   const [data, setData] = useState();
+
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정 일기장 - ${id}번 일기`;
+  }, []);
 
   useEffect(() => {
     if (diaryList.length >= 1) {
@@ -22,15 +26,13 @@ const Diary = () => {
       );
 
       if (targetDiary) {
-        // 일기가 존재할 때
         setData(targetDiary);
       } else {
-        // 일기가 존재하지 않을 때
         alert("없는 일기입니다");
         navigate("/", { replace: true });
       }
     }
-  }, [diaryList, id]);
+  }, [diaryList, id, navigate]);
 
   if (!data) {
     return <div className="diaryList"> 로딩중입니다....</div>;
@@ -62,7 +64,7 @@ const Diary = () => {
                 `diary_img_wrapper_${data.emotion}`,
               ].join(" ")}
             >
-              <img src={curEmotionData.emotion_img} />
+              <img src={curEmotionData.emotion_img} alt="감정 이미지" />
               <div className="emotion_descript">
                 {curEmotionData.emotion_descript}
               </div>
