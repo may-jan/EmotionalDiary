@@ -10,7 +10,7 @@ const EmotionItem = React.memo(
           isSelected ? `EmotionItem_on_${emotion_id}` : "EmotionItem_off",
         ].join(" ")}
       >
-        <img src={emotion_img} />
+        <img src={emotion_img} alt="감정 이미지" />
         <span>{emotion_descript}</span>
       </div>
     );
